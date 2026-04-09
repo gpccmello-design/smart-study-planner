@@ -51,6 +51,20 @@ const STEPS = [
     ),
     gradient: 'from-emerald-500 to-teal-500',
   },
+  {
+    title: 'Track Progress & Earn Rewards',
+    description:
+      'Mark sessions as done to earn XP and climb levels. Check the Stats tab to see your study streaks, hours per subject, and unlock badges as you go.',
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+        <path d="M20 6l3.5 7 7.5 1.1-5.4 5.3 1.3 7.6L20 23.5l-6.9 3.5 1.3-7.6L9 14.1l7.5-1.1L20 6z" stroke="#a78bfa" strokeWidth="2" strokeLinejoin="round"/>
+        <circle cx="20" cy="16" r="3" fill="#7c3aed"/>
+        <path d="M12 32h16" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M15 35h10" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
+    gradient: 'from-amber-500 to-orange-500',
+  },
 ];
 
 export default function OnboardingModal({ onFinish }) {
@@ -91,7 +105,7 @@ export default function OnboardingModal({ onFinish }) {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.2 }}
               className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${current.gradient} bg-opacity-10 flex items-center justify-center shadow-glow-sm`}
-              style={{ background: `linear-gradient(135deg, ${current.gradient.includes('violet') ? '#a78bfa22' : current.gradient.includes('blue') ? '#3b82f622' : '#10b98122'} 0%, transparent 100%)` }}
+              style={{ background: `linear-gradient(135deg, ${current.gradient.includes('violet') ? '#a78bfa22' : current.gradient.includes('blue') ? '#3b82f622' : current.gradient.includes('amber') ? '#f59e0b22' : '#10b98122'} 0%, transparent 100%)` }}
             >
               {current.icon}
             </motion.div>
