@@ -42,30 +42,44 @@ export default function Header({ activeTab, onTabChange, isDark, onToggleDark })
     <header className="sticky top-0 z-20 no-print">
       {/* Glass panel */}
       <div className="glass-card border-b border-white/60 dark:border-white/5">
-        <div className="max-w-5xl mx-auto px-6 h-[58px] flex items-center justify-between gap-6">
+        <div className="max-w-5xl mx-auto px-3 sm:px-6 py-2 sm:py-0 sm:h-[58px] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
 
-          {/* ── Brand ─────────────────────────────────────────── */}
-          <div className="flex items-center gap-2.5 shrink-0">
-            <div
-              className="w-8 h-8 rounded-xl flex items-center justify-center shadow-glow-sm shrink-0"
-              style={{ background: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)' }}
-            >
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                <path d="M2 3h12M2 6h8M2 9h10M2 12h6" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-              </svg>
+          {/* ── Top row on mobile: brand + dark mode ─────────── */}
+          <div className="flex items-center justify-between w-full sm:w-auto">
+            <div className="flex items-center gap-2 shrink-0">
+              <div
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shadow-glow-sm shrink-0"
+                style={{ background: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)' }}
+              >
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 3h12M2 6h8M2 9h10M2 12h6" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span className="font-bold text-slate-900 dark:text-slate-100 tracking-tight text-sm sm:text-[15px]">
+                Smart Study
+                <span className="text-primary-600 dark:text-primary-400"> Planner</span>
+              </span>
             </div>
-            <span className="font-bold text-slate-900 dark:text-slate-100 tracking-tight text-[15px]">
-              Smart Study
-              <span className="text-primary-600 dark:text-primary-400"> Planner</span>
-            </span>
-          </div>
 
-          <div className="flex items-center gap-3">
-            {/* ── Dark mode toggle ────────────────────────────── */}
             <button
               onClick={() => onToggleDark?.((prev) => !prev)}
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              className="w-8 h-8 rounded-lg flex items-center justify-center
+              className="w-8 h-8 rounded-lg flex items-center justify-center sm:hidden
+                         text-slate-500 dark:text-slate-400
+                         hover:bg-slate-100/80 dark:hover:bg-slate-700/80
+                         border border-slate-200/80 dark:border-slate-600/50
+                         transition-all duration-200"
+            >
+              {isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
+          </div>
+
+          <div className="flex items-center gap-3">
+            {/* ── Dark mode toggle (desktop) ─────────────────── */}
+            <button
+              onClick={() => onToggleDark?.((prev) => !prev)}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              className="w-8 h-8 rounded-lg hidden sm:flex items-center justify-center
                          text-slate-500 dark:text-slate-400
                          hover:bg-slate-100/80 dark:hover:bg-slate-700/80
                          border border-slate-200/80 dark:border-slate-600/50
@@ -87,7 +101,7 @@ export default function Header({ activeTab, onTabChange, isDark, onToggleDark })
                     role="tab"
                     aria-selected={active}
                     onClick={() => onTabChange(id)}
-                    className="relative px-4 py-1.5 rounded-lg text-sm font-medium transition-colors duration-150 focus:outline-none"
+                    className="relative px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors duration-150 focus:outline-none"
                   >
                     {active && (
                       <motion.div

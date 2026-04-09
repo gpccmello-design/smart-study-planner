@@ -93,7 +93,7 @@ function DayRow({ entry, subjects, colorMap, isToday, isWeekend, progress, onTog
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.15, delay: Math.min(index * 0.015, 0.25) }}
       className={[
-        'flex items-center gap-4 px-4 py-3 rounded-xl border transition-colors',
+        'flex items-center gap-2 sm:gap-4 px-2.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border transition-colors',
         isToday
           ? 'bg-primary-50/80 dark:bg-primary-500/20 border-primary-200/80 dark:border-primary-400/50'
           : isWeekend
@@ -101,7 +101,7 @@ function DayRow({ entry, subjects, colorMap, isToday, isWeekend, progress, onTog
           : 'glass-card hover:shadow-card-md',
       ].join(' ')}
     >
-      <div className="w-20 shrink-0 text-right">
+      <div className="w-14 sm:w-20 shrink-0 text-right">
         <p className={`text-[10px] font-bold uppercase tracking-wide ${isToday ? 'text-primary-500 dark:text-primary-300' : 'text-slate-400 dark:text-slate-500'}`}>
           {weekday}
         </p>
@@ -220,15 +220,15 @@ export default function StudyPlanView({ subjects, plan, onGenerate, generating, 
     <div className="space-y-4 print-plan">
 
       {/* Header */}
-      <div className="flex items-start justify-between gap-4 flex-wrap no-print">
+      <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4 no-print">
         <div>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight">Your Study Schedule</h2>
-          <p className="text-sm text-slate-400 dark:text-slate-500 mt-0.5">
+          <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight">Your Study Schedule</h2>
+          <p className="text-xs sm:text-sm text-slate-400 dark:text-slate-500 mt-0.5">
             {plan.length} days &middot; {totalHours.toFixed(1)}h total &middot; {subjects.length} subjects
           </p>
         </div>
 
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
           {/* View toggle */}
           <div className="flex items-center glass-card rounded-lg p-0.5 gap-0.5 shadow-card">
             {['calendar', 'list'].map((mode) => (

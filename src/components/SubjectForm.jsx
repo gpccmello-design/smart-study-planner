@@ -101,7 +101,7 @@ export default function SubjectForm({ onAdd }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="glass-card rounded-2xl shadow-card-lg p-6 space-y-5"
+      className="glass-card rounded-2xl shadow-card-lg p-4 sm:p-6 space-y-4 sm:space-y-5"
     >
       {/* Card header */}
       <div className="flex items-center gap-2.5">

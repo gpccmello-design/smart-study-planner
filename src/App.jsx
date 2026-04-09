@@ -71,14 +71,14 @@ function StatCard({ label, numericValue, suffix, fallback, sub, gradient }) {
   return (
     <div className="glass-card rounded-2xl shadow-card overflow-hidden min-w-0">
       <div className={`h-[3px] bg-gradient-to-r ${gradient}`} />
-      <div className="px-4 sm:px-5 py-4">
-        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest truncate">
+      <div className="px-3 sm:px-5 py-3 sm:py-4">
+        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest truncate">
           {label}
         </p>
-        <p className="text-[1.55rem] font-extrabold text-slate-900 dark:text-slate-100 leading-tight mt-1 truncate">
+        <p className="text-xl sm:text-[1.55rem] font-extrabold text-slate-900 dark:text-slate-100 leading-tight mt-0.5 sm:mt-1 truncate">
           <AnimatedStatValue numericValue={numericValue} suffix={suffix} fallback={fallback} />
         </p>
-        {sub && <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">{sub}</p>}
+        {sub && <p className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 truncate">{sub}</p>}
       </div>
     </div>
   );
@@ -105,7 +105,7 @@ function StatsBar({ subjects, plan, settings }) {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
       {STAT_CONFIG.map((cfg, i) => (
         <StatCard key={cfg.label} {...cfg} {...stats[i]} />
       ))}
@@ -206,7 +206,7 @@ export default function App() {
           onToggleDark={setIsDark}
         />
 
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5 sm:py-7 space-y-5 sm:space-y-6">
+        <main className="max-w-5xl mx-auto px-3 sm:px-6 py-4 sm:py-7 space-y-4 sm:space-y-6">
 
           <StatsBar subjects={subjects} plan={plan} settings={settings} />
 

@@ -148,7 +148,7 @@ export default function CalendarView({ plan, subjects, colorMap, progress, onTog
         </button>
 
         <div className="flex flex-col items-center gap-1.5">
-          <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{navLabel}</span>
+          <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">{navLabel}</span>
           <div className="flex rounded-lg overflow-hidden border border-slate-200 dark:border-slate-600">
             <button
               onClick={() => setView('week')}
@@ -187,7 +187,7 @@ export default function CalendarView({ plan, subjects, colorMap, progress, onTog
       {/* Week view */}
       {view === 'week' && (
         <div className="overflow-x-auto pb-1">
-          <div className="grid grid-cols-7 gap-1.5 min-w-[520px]">
+          <div className="grid grid-cols-7 gap-1 sm:gap-1.5 min-w-0">
 
             {/* Day headers */}
             {weekDays.map((day, i) => {
@@ -228,7 +228,7 @@ export default function CalendarView({ plan, subjects, colorMap, progress, onTog
                 <div
                   key={dateStr + '-cell'}
                   className={[
-                    'min-h-[90px] rounded-xl border p-1.5 space-y-1',
+                    'min-h-[70px] sm:min-h-[90px] rounded-lg sm:rounded-xl border p-1 sm:p-1.5 space-y-0.5 sm:space-y-1',
                     isToday
                       ? 'bg-primary-50/70 dark:bg-primary-500/20 border-primary-200/70 dark:border-primary-400/50'
                       : isWeekend
@@ -266,7 +266,7 @@ export default function CalendarView({ plan, subjects, colorMap, progress, onTog
       {/* Month view */}
       {view === 'month' && (
         <div className="overflow-x-auto pb-1">
-          <div className="grid grid-cols-7 gap-1 min-w-[520px]">
+          <div className="grid grid-cols-7 gap-1 min-w-0">
 
             {/* Day-of-week headers */}
             {WEEKDAYS.map((wd) => (
