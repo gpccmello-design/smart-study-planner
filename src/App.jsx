@@ -14,6 +14,7 @@ import SubjectList     from './components/SubjectList';
 import StudyPlanView   from './components/StudyPlanView';
 import SettingsPanel   from './components/SettingsPanel';
 import OnboardingModal from './components/OnboardingModal';
+import StatsView       from './components/StatsView';
 
 const DEFAULT_SETTINGS = {
   hoursPerDay: 4,
@@ -267,6 +268,18 @@ export default function App() {
                   progress={progress}
                   onToggleProgress={handleToggleProgress}
                 />
+              </motion.div>
+            )}
+
+            {activeTab === 'stats' && (
+              <motion.div
+                key="stats"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.18 }}
+              >
+                <StatsView subjects={subjects} plan={plan} progress={progress} />
               </motion.div>
             )}
 

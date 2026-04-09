@@ -10,7 +10,8 @@ import { motion } from 'framer-motion';
 const TABS = [
   { id: 'subjects', label: 'Subjects'   },
   { id: 'plan',     label: 'Study Plan' },
-  { id: 'settings', label: 'Settings'  },
+  { id: 'stats',    label: 'Stats'      },
+  { id: 'settings', label: 'Settings'   },
 ];
 
 function SunIcon() {
